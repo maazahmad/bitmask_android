@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
   compileSdkVersion 23
-  buildToolsVersion "23.0.3"
+  buildToolsVersion '25.0.0'
 
   signingConfigs {
     release {
@@ -143,7 +143,7 @@ task removeDuplicatedStrings() {
       if(ics_openvpn_file.exists()) {
 	def ics_openvpn_strings_names = (new XmlParser()).parse(ics_openvpn_file)
 	def current_file = it
-      
+
 	ics_openvpn_strings_names.string.each {
 	  processFileInplace(current_file) { text ->
 	    text.replaceAll('.*name=\"' + it.attribute('name') + '\".*(\n)*.*string>.*\n+', '')
